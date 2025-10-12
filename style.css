@@ -1,0 +1,243 @@
+/* =======================
+   Reset & Global Styles
+======================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    cursor: none; /* Hide default cursor */
+    overflow-x: hidden;
+}
+
+/* =======================
+   Background Video & Overlay
+======================= */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+/* =======================
+   Header / Hero Section
+======================= */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+header h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px #00ffe0, 0 0 40px #00ffe0, 0 0 60px #00ffe0;
+}
+
+header h1 span {
+    color: #00ffe0;
+    text-shadow: 0 0 20px #00ffe0, 0 0 40px #00ffe0;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    color: #f0f0f0;
+}
+
+/* =======================
+   Call to Action Button
+======================= */
+.cta-btn {
+    padding: 15px 50px;
+    background: #00ffe0;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 0 20px #00ffe0;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background: #00d9b0;
+    box-shadow: 0 0 40px #00ffe0, 0 0 60px #00d9b0;
+}
+
+/* =======================
+   Features Section
+======================= */
+#features {
+    padding: 100px 50px;
+    text-align: center;
+    background: #111;
+}
+
+#features h2 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    text-shadow: 0 0 10px #00ffe0;
+}
+
+/* === Feature Cards === */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    z-index: 1;
+}
+
+/* === Individual Card === */
+.card {
+    background: rgba(10, 10, 10, 0.9);
+    padding: 35px;
+    border-radius: 20px;
+    width: 300px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+    border: 1px solid rgba(0, 255, 224, 0.25);
+    box-shadow: 0 0 20px rgba(0, 255, 224, 0.3);
+}
+
+/* === Animated Border Glow === */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(45deg, #00ffe0, #00b3ff, #008cff, #00ffe0);
+    background-size: 300% 300%;
+    animation: glowShift 5s linear infinite;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+@keyframes glowShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* === Hover Effect === */
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: rgba(0, 255, 224, 0.7);
+    box-shadow: 0 0 30px rgba(0, 255, 224, 0.8), 0 0 60px rgba(0, 255, 224, 0.4);
+}
+
+/* === Title and Paragraph === */
+.card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #00ffe0;
+    text-shadow: 0 0 8px #00ffe0, 0 0 20px rgba(0, 255, 224, 0.4);
+}
+
+.card p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+.button-group {
+    display: flex;
+    gap: 20px;
+}
+
+#voice-btn {
+    background: #ff008c;
+    box-shadow: 0 0 25px #ff008c;
+}
+
+#voice-btn:hover {
+    background: #ff33aa;
+    box-shadow: 0 0 40px #ff33aa, 0 0 80px #ff008c;
+}
+
+
+/* =======================
+   Footer
+======================= */
+footer {
+    padding: 50px;
+    text-align: center;
+    background: #000;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+/* =======================
+   Cursor
+======================= */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #00ffe0;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, transform 0.1s ease;
+    z-index: 10000;
+}
+
+.cta-btn:hover ~ .cursor {
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 255, 224, 0.2);
+}
+a, button {
+    cursor: none !important;
+}
+.feature-btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.feature-btn:hover {
+    background-color: #0088cc;
+    transform: translateY(-2px);
+}
+
+
+
+/* =======================
+   Animations
+======================= */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
